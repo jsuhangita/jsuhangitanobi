@@ -3,22 +3,40 @@ import {StyleSheet} from 'react-native';
 import {Input} from '@rneui/themed';
 import {
   colors,
-  fontStyleBold,
   fontStyleItalic,
   fontStyleMedium,
 } from '../../styles/theme.styles';
+import {Controller} from 'react-hook-form';
 
-export default function InputComponent({label, placeholder, ...other}) {
+export default function InputComponent({
+  label,
+  placeholder,
+  control,
+  name,
+  rules,
+  ...other
+}) {
   return (
-    <Input
-      label={label}
-      placeholder={placeholder}
-      containerStyle={styles.containerStyle}
-      inputContainerStyle={styles.inputContainer}
-      labelStyle={styles.labelStyle}
-      inputStyle={styles.inputStyle}
-      errorStyle={styles.errorStyle}
-      {...other}
+    <Controller
+      defaultValue={''}
+      name={name}
+      control={control}
+      rules={rules}
+      render={({field, value, ...rest}) => (
+        <Input
+          onChangeText={text => {
+            field.onChange(text);
+          }}
+          value={value}
+          placeholder={placeholder}
+          containerStyle={styles.containerStyle}
+          inputContainerStyle={styles.inputContainer}
+          labelStyle={styles.labelStyle}
+          inputStyle={styles.inputStyle}
+          errorStyle={styles.errorStyle}
+          {...other}
+        />
+      )}
     />
   );
 }

@@ -5,6 +5,7 @@ export const colors = {
   white: '#EAEAEA',
   fadeGrey: '#9D9FA0',
   inputError: '#F6BC45',
+  buttonBackground: '#2C5DEB',
 };
 
 const fontSizes = {
