@@ -13,8 +13,12 @@ export async function initialSetup() {
 
 export async function submitLogin(data) {
   try {
-    return await POST('LOGIN', '', {
+    const {token} = await POST('LOGIN', '', {
       ...data,
+    });
+    set(storageKeys.APP_CONFIG, {
+      isLoggedIn: true,
+      access_token: token,
     });
   } catch (e) {
     throw e;

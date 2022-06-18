@@ -1,9 +1,8 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {AuthRoute} from './routes/routes.index';
-import {useEffect, useState} from 'react';
-import {initialSetup} from './request/auth.request';
+import {AuthRoute, TabRoute} from './routes/routes.index';
+import SplashScreenPage from './pages/SplashScreen.page';
 
 const Stack = createStackNavigator();
 
@@ -16,22 +15,14 @@ export default function App() {
 }
 
 function RootNavigation() {
-  const [loggedIn, updateLoggedIn] = useState(false);
-
-  async function _initialSetup() {
-    const {isLoggedIn} = await initialSetup();
-    updateLoggedIn(isLoggedIn);
-  }
-  useEffect(() => {
-    _initialSetup();
-  }, []);
   return (
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
       }}>
-      {loggedIn && <Stack.Screen name={'Auth'} component={AuthRoute} />}
+      <Stack.Screen name={'Splash'} component={SplashScreenPage} />
       <Stack.Screen name={'Auth'} component={AuthRoute} />
+      <Stack.Screen name={'Tab'} component={TabRoute} />
     </Stack.Navigator>
   );
 }

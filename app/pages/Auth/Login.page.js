@@ -11,7 +11,7 @@ import {isEmpty} from 'lodash';
 import {submitLogin} from '../../request/auth.request';
 import {errorHandler} from '../../util/helper.util';
 
-export default function LoginPage() {
+export default function LoginPage({navigation}) {
   const {
     control,
     handleSubmit,
@@ -23,8 +23,8 @@ export default function LoginPage() {
   async function onSubmit(data) {
     try {
       updateLoading(true);
-      const res = await submitLogin(data);
-      console.log({res});
+      await submitLogin(data);
+      navigation.replace('Tab');
     } catch (e) {
       errorHandler(e);
     } finally {
