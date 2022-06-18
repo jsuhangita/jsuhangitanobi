@@ -14,6 +14,10 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-jsuhangitanobi-jsuhangitanobiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-jsuhangitanobi-jsuhangitanobiTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		CECB49CA285DFFCB00D78EF9 /* CircularStd-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CECB49C6285DFFCB00D78EF9 /* CircularStd-Bold.ttf */; };
+		CECB49CB285DFFCB00D78EF9 /* CircularStd-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CECB49C7285DFFCB00D78EF9 /* CircularStd-Book.ttf */; };
+		CECB49CC285DFFCB00D78EF9 /* CircularStd-BookItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CECB49C8285DFFCB00D78EF9 /* CircularStd-BookItalic.ttf */; };
+		CECB49CD285DFFCB00D78EF9 /* CircularStd-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CECB49C9285DFFCB00D78EF9 /* CircularStd-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,10 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-jsuhangitanobi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-jsuhangitanobi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = jsuhangitanobi/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-jsuhangitanobi-jsuhangitanobiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jsuhangitanobi-jsuhangitanobiTests.release.xcconfig"; path = "Target Support Files/Pods-jsuhangitanobi-jsuhangitanobiTests/Pods-jsuhangitanobi-jsuhangitanobiTests.release.xcconfig"; sourceTree = "<group>"; };
+		CECB49C6285DFFCB00D78EF9 /* CircularStd-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "CircularStd-Bold.ttf"; path = "../../assets/fonts/CircularStd-Bold.ttf"; sourceTree = "<group>"; };
+		CECB49C7285DFFCB00D78EF9 /* CircularStd-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "CircularStd-Book.ttf"; path = "../../assets/fonts/CircularStd-Book.ttf"; sourceTree = "<group>"; };
+		CECB49C8285DFFCB00D78EF9 /* CircularStd-BookItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "CircularStd-BookItalic.ttf"; path = "../../assets/fonts/CircularStd-BookItalic.ttf"; sourceTree = "<group>"; };
+		CECB49C9285DFFCB00D78EF9 /* CircularStd-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "CircularStd-Medium.ttf"; path = "../../assets/fonts/CircularStd-Medium.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -116,6 +124,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				CECB49C5285DFFB600D78EF9 /* fonts */,
 				13B07FAE1A68108700A75B9A /* jsuhangitanobi */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* jsuhangitanobiTests */,
@@ -146,6 +155,17 @@
 				89C6BE57DB24E9ADA2F236DE /* Pods-jsuhangitanobi-jsuhangitanobiTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CECB49C5285DFFB600D78EF9 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CECB49C6285DFFCB00D78EF9 /* CircularStd-Bold.ttf */,
+				CECB49C7285DFFCB00D78EF9 /* CircularStd-Book.ttf */,
+				CECB49C8285DFFCB00D78EF9 /* CircularStd-BookItalic.ttf */,
+				CECB49C9285DFFCB00D78EF9 /* CircularStd-Medium.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,8 +262,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CECB49CD285DFFCB00D78EF9 /* CircularStd-Medium.ttf in Resources */,
+				CECB49CC285DFFCB00D78EF9 /* CircularStd-BookItalic.ttf in Resources */,
+				CECB49CB285DFFCB00D78EF9 /* CircularStd-Book.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				CECB49CA285DFFCB00D78EF9 /* CircularStd-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
