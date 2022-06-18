@@ -8,6 +8,8 @@ import {colors} from '../../styles/theme.styles';
 import {useForm} from 'react-hook-form';
 import {emailRules, passwordRules} from '../../validation/auth.validation';
 import {isEmpty} from 'lodash';
+import {submitLogin} from '../../request/auth.request';
+import {errorHandler} from '../../util/helper.util';
 
 export default function LoginPage() {
   const {
@@ -16,14 +18,26 @@ export default function LoginPage() {
     formState: {errors},
   } = useForm();
   const [passwordSecure, updatePasswordSecure] = useState(true);
+  const [loading, updateLoading] = useState(false);
 
-  const onSubmit = data => console.log(data);
+  async function onSubmit(data) {
+    try {
+      updateLoading(true);
+      const res = await submitLogin(data);
+      console.log({res});
+    } catch (e) {
+      errorHandler(e);
+    } finally {
+      updateLoading(false);
+    }
+  }
   return (
     <Container>
       <View style={styles.logoContainer}>
         <Image source={logo} style={styles.logo} resizeMode={'contain'} />
       </View>
       <Input
+        autoCapitalize={'none'}
         control={control}
         name={'email'}
         label={'E-mail Address'}
@@ -59,6 +73,7 @@ export default function LoginPage() {
         containerStyle={styles.buttonContainer}
         onPress={handleSubmit(onSubmit)}
         disabled={!isEmpty(errors)}
+        loading={loading}
       />
     </Container>
   );
