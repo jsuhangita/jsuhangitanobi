@@ -4,4 +4,5 @@ export const env = {
 
 export const endpoints = {
   LOGIN: '/login',
+  DASHBOARD: '/dashboard',
 };

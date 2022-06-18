@@ -17,6 +17,35 @@ export async function POST(
 ) {
   try {
     const appConfig = await get(storageKeys.APP_CONFIG);
+    const baseData = {
+      ...(appConfig.access_token && {
+        token: `${appConfig.access_token}`,
+      }),
+    };
+    const config = {
+      ...baseConfig,
+      headers: {
+        ...headers,
+      },
+      ...options,
+      method: 'post',
+      endpoint,
+      url: `${endpoints[endpoint]}${path}`,
+      data: {
+        ...baseData,
+        ...data,
+      },
+    };
+    const {data: responseData} = await axios(config);
+    return responseData;
+  } catch (e) {
+    throw e.response.data;
+  }
+}
+
+export async function GET(endpoint, path = '', options = {}, headers = {}) {
+  try {
+    const appConfig = await get(storageKeys.APP_CONFIG);
     const config = {
       ...baseConfig,
       headers: {
@@ -26,10 +55,9 @@ export async function POST(
         ...headers,
       },
       ...options,
-      method: 'post',
+      method: 'get',
       endpoint,
       url: `${endpoints[endpoint]}${path}`,
-      data,
     };
     const {data: responseData} = await axios(config);
     return responseData;

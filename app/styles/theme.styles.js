@@ -6,6 +6,7 @@ export const colors = {
   fadeGrey: '#9D9FA0',
   inputError: '#F6BC45',
   buttonBackground: '#2C5DEB',
+  toscaGreen: '#05BE90',
 };
 
 const fontSizes = {
@@ -24,7 +25,8 @@ export const defaultTextStyle = {
 };
 
 export const fontStyleBold = {
-  fontFamily: 'CircularStd-Medium',
+  fontFamily: 'CircularStd-Bold',
+  fontWeight: 'bold',
 };
 
 export const fontStyleItalic = {

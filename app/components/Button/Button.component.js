@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
   buttonStyle: {
     borderRadius: 10,
     backgroundColor: colors.buttonBackground,
+    height: 39,
   },
   titleStyle: {
     ...fontStyleMedium,
