@@ -4,13 +4,16 @@ import {errorHandler} from '../../util/helper.util';
 import {fetchDashboard} from '../../request/home.request';
 import bannerImage from '../../../assets/image/banner.png';
 import {Image} from '@rneui/themed';
-import {Modal, StyleSheet, View} from 'react-native';
+import {Modal, StyleSheet} from 'react-native';
 import {colors, fontStyleBold} from '../../styles/theme.styles';
 import {Icon, Overlay} from '@rneui/base';
+import LogOutConfirmationComponent from '../../components/LogoutConfirmation/LogOutConfirmation.component';
+import {clearAppConfig} from '../../request/auth.request';
 
-export default function HomePage() {
+export default function HomePage({navigation}) {
   const [dashboard, updateDashboard] = useState({});
   const [modalVisible, updateModalVisible] = useState(false);
+  const [logoutVisible, updateLogoutVisible] = useState(false);
 
   async function _getData() {
     try {
@@ -19,6 +22,11 @@ export default function HomePage() {
     } catch (e) {
       errorHandler(e);
     }
+  }
+
+  function _onPressLogout() {
+    clearAppConfig();
+    navigation.replace('Auth');
   }
 
   useEffect(() => {
@@ -61,7 +69,35 @@ export default function HomePage() {
           />
         }
       />
+      <Button
+        onPress={() => {
+          updateLogoutVisible(true);
+        }}
+        title={'Log-out'}
+        containerStyle={[styles.buttonContainerStyle]}
+        buttonStyle={styles.buttonLogout}
+        titleStyle={styles.buttonText}
+        icon={
+          <Icon
+            name={'log-out'}
+            type={'feather'}
+            color={colors.white}
+            style={styles.icon}
+          />
+        }
+      />
       <Overlay isVisible={modalVisible} overlayStyle={styles.overlayStyle} />
+      <Overlay
+        animationType={'fade'}
+        isVisible={logoutVisible}
+        overlayStyle={styles.overlayStyle}>
+        <LogOutConfirmationComponent
+          onPressCancel={() => {
+            updateLogoutVisible(false);
+          }}
+          onPressLogout={_onPressLogout}
+        />
+      </Overlay>
     </Container>
   );
 }
@@ -87,6 +123,10 @@ const styles = StyleSheet.create({
     backgroundColor: colors.toscaGreen,
     borderRadius: 10,
   },
+  buttonLogout: {
+    backgroundColor: colors.danger,
+    borderRadius: 10,
+  },
   buttonText: {
     ...fontStyleBold,
   },
@@ -94,6 +134,6 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   overlayStyle: {
-    opacity: 0,
+    backgroundColor: 'transparent',
   },
 });

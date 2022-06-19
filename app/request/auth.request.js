@@ -24,3 +24,8 @@ export async function submitLogin(data) {
     throw e;
   }
 }
+
+export function clearAppConfig() {
+  set(storageKeys.INITIAL_SETUP, true);
+  set(storageKeys.APP_CONFIG, APP_CONFIG_DEFAULT);
+}

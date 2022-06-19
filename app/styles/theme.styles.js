@@ -8,6 +8,7 @@ export const colors = {
   buttonBackground: '#2C5DEB',
   toscaGreen: '#05BE90',
   searchBackground: '#223965',
+  danger: '#eb4034',
 };
 
 const fontSizes = {
