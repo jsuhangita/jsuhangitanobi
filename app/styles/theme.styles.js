@@ -7,6 +7,7 @@ export const colors = {
   inputError: '#F6BC45',
   buttonBackground: '#2C5DEB',
   toscaGreen: '#05BE90',
+  searchBackground: '#223965',
 };
 
 const fontSizes = {
