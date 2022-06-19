@@ -2,7 +2,12 @@ import React, {useState} from 'react';
 import {Button, Container, Input} from '../../components';
 import {Image} from '@rneui/themed';
 import logo from '../../../assets/image/logo.png';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  KeyboardAvoidingView,
+} from 'react-native';
 import {Icon} from '@rneui/themed';
 import {colors} from '../../styles/theme.styles';
 import {useForm} from 'react-hook-form';
@@ -33,48 +38,50 @@ export default function LoginPage({navigation}) {
   }
   return (
     <Container>
-      <View style={styles.logoContainer}>
-        <Image source={logo} style={styles.logo} resizeMode={'contain'} />
-      </View>
-      <Input
-        autoCapitalize={'none'}
-        control={control}
-        name={'email'}
-        label={'E-mail Address'}
-        placeholder={'Enter E-mail Address'}
-        errorMessage={errors?.email?.message}
-        rules={emailRules}
-      />
-      <Input
-        control={control}
-        name={'password'}
-        label={'Password'}
-        placeholder={'Enter Password'}
-        errorMessage={errors?.password?.message}
-        secureTextEntry={passwordSecure}
-        rightIcon={
-          <TouchableOpacity
-            hitSlop={10}
-            onPress={() => {
-              updatePasswordSecure(!passwordSecure);
-            }}>
-            <Icon
-              name={passwordSecure ? 'eye-slash' : 'eye'}
-              size={15}
-              color={colors.fadeGrey}
-              type="font-awesome"
-            />
-          </TouchableOpacity>
-        }
-        rules={passwordRules}
-      />
-      <Button
-        title={'Login'}
-        containerStyle={styles.buttonContainer}
-        onPress={handleSubmit(onSubmit)}
-        disabled={!isEmpty(errors)}
-        loading={loading}
-      />
+      <KeyboardAvoidingView style={{flex: 1}}>
+        <View style={styles.logoContainer}>
+          <Image source={logo} style={styles.logo} resizeMode={'contain'} />
+        </View>
+        <Input
+          autoCapitalize={'none'}
+          control={control}
+          name={'email'}
+          label={'E-mail Address'}
+          placeholder={'Enter E-mail Address'}
+          errorMessage={errors?.email?.message}
+          rules={emailRules}
+        />
+        <Input
+          control={control}
+          name={'password'}
+          label={'Password'}
+          placeholder={'Enter Password'}
+          errorMessage={errors?.password?.message}
+          secureTextEntry={passwordSecure}
+          rightIcon={
+            <TouchableOpacity
+              hitSlop={10}
+              onPress={() => {
+                updatePasswordSecure(!passwordSecure);
+              }}>
+              <Icon
+                name={passwordSecure ? 'eye-slash' : 'eye'}
+                size={15}
+                color={colors.fadeGrey}
+                type="font-awesome"
+              />
+            </TouchableOpacity>
+          }
+          rules={passwordRules}
+        />
+        <Button
+          title={'Login'}
+          containerStyle={styles.buttonContainer}
+          onPress={handleSubmit(onSubmit)}
+          disabled={!isEmpty(errors)}
+          loading={loading}
+        />
+      </KeyboardAvoidingView>
     </Container>
   );
 }
@@ -91,6 +98,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginHorizontal: 47,
-    marginTop: '100%',
+    marginTop: 'auto',
+    marginBottom: 20,
   },
 });

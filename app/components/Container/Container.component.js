@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, View } from "react-native";
+import {SafeAreaView, StyleSheet, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {colors} from '../../styles/theme.styles';
 
@@ -10,7 +10,7 @@ export default function ContainerComponent(props) {
       <LinearGradient
         style={styles.gradient}
         colors={[colors.darkBlue, colors.black]}>
-        <SafeAreaView>{children}</SafeAreaView>
+        <SafeAreaView style={styles.container}>{children}</SafeAreaView>
       </LinearGradient>
     </View>
   );
